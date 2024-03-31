@@ -9,6 +9,7 @@ invoice-service,  siparişin faturasıdır. invoiceNo bulundurur ve unique bir i
 main-service, bütün bu işlemlerin ortak olarak yönetildiği sınıftır. Bu sürecin yönetimini sağlar. İletişim API üzerinden objeler yaratarak gerçekleştirilir.
 
 
+
 Şu an için projede projectDiscovery'de Eureka server oluşturdum ve tüm servislerin server'a kaydını yaptım. 
 ProjectGateway, gateway işlemlerini halleder, kurulumu tamamlandı. Servisler'e api endpoint eklendikçe, routing işlemi tamamlanacak.
 GlobalExceptionHandler main-service'de kuruldu, verilen hatalarla bu kısım ilgilenecek.
