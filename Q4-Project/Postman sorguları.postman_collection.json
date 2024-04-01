@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "b0d8411d-4479-4b4d-a96d-3cca4e3dcf06",
+		"name": "Product Projesi API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31426991"
+	},
+	"item": [
+		{
+			"name": "invoice",
+			"item": [
+				{
+					"name": "get all invoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8084/api/invoices/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"invoices",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get unique invoice id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/api/invoices/unique-id",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"invoices",
+								"unique-id"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "invoice-service class'ına ait API sorgularını içerir"
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "get order by invoiceNo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/orders/update/16?productID=1&quantity=34",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"orders",
+								"update",
+								"16"
+							],
+							"query": [
+								{
+									"key": "productID",
+									"value": "1"
+								},
+								{
+									"key": "quantity",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new empty-order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/orders/new-order",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"orders",
+								"new-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/orders/all-orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"orders",
+								"all-orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add product(update order)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/orders/update/16?productID=1&quantity=34",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"orders",
+								"update",
+								"16"
+							],
+							"query": [
+								{
+									"key": "productID",
+									"value": "1"
+								},
+								{
+									"key": "quantity",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "order-service class'ına ait API sorgularını içerir"
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "create product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n    \"name\": \"Mikrodalga Fırın\",\r\n    \"category\": \"ELECTRONIC\",\r\n    \"price\": 899.99,\r\n    \"stock\": 50\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/api/products/new-product",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"products",
+								"new-product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/api/products/0",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"products",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/api/products/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"products",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "product-service class'ına ait API sorgularını içerir"
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "create customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Ahmet\",\r\n  \"surname\": \"Yılmaz\",\r\n  \"birthDate\": \"1990-05-21\",\r\n  \"email\": \"ahmetyilmaz@example.com\",\r\n  \"password\": \"sifre123\",\r\n  \"phoneNumber\": \"05551234567\",\r\n  \"isActive\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8086/api/customers/new-customer",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"customers",
+								"new-customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get customer by email",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Ahmet\",\r\n  \"surname\": \"Yılmaz\",\r\n  \"birthDate\": \"1990-05-21\",\r\n  \"email\": \"ahmetyilmaz@example.com\",\r\n  \"password\": \"sifre123\",\r\n  \"phoneNumber\": \"05551234567\",\r\n  \"isActive\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8086/api/customers/ahmetyilmaz@example.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"customers",
+								"ahmetyilmaz@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all customers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Ahmet\",\r\n  \"surname\": \"Yılmaz\",\r\n  \"birthDate\": \"1990-05-21\",\r\n  \"email\": \"ahmetyilmaz@example.com\",\r\n  \"password\": \"sifre123\",\r\n  \"phoneNumber\": \"05551234567\",\r\n  \"isActive\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8086/api/customers/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"customers",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add order to customer (update customer)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8086/api/customers/ahmetyilmaz@example.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"customers",
+								"ahmetyilmaz@example.com"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "customer-service class'ına ait API sorgularını içerir"
+		}
+	]
+}

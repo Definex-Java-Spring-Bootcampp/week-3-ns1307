@@ -9,18 +9,14 @@ public class Order {
     //Bir sipariş içerisinde birden fazla ürün olabilir. (OrderItem)
     //Her siparişin bir faturası vardır.
 
-    double totalPrice;
-    List<OrderItem> items;
-    Invoice invoice;
+    double totalPrice=0;
+    List<OrderItem> items=new ArrayList<OrderItem>();;
+    Invoice invoice=new Invoice();
 
     public Order(){
-        this.items=new ArrayList<OrderItem>();
-        this.invoice=new Invoice();
-        totalPrice=0;
     }
 
     public Order(Invoice invoice) {
-        this.totalPrice = totalPrice;
         this.invoice = invoice;
     }
 

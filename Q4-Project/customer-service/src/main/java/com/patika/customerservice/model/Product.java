@@ -26,6 +26,9 @@ public class Product {
         this.stock = stock;
     }
 
+    public Product() {
+    }
+
     public void setId(int id) {
         this.id = id;
     }

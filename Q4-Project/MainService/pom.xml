@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.patika</groupId>
-	<artifactId>MainService</artifactId>
+	<artifactId>main-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MainService</name>
 	<description>MainService</description>

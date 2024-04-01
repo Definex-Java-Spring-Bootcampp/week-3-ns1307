@@ -16,12 +16,9 @@ public class Product {
         this.price = price;
         this.stock = stock;
     }
-    public Product(int id, String name, CategoryType category, double price, int stock) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-        this.price = price;
-        this.stock = stock;
+
+
+    public Product() {
     }
 
     public void setId(int id) {

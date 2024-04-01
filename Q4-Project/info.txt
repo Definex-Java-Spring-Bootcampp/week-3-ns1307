@@ -1,0 +1,21 @@
+Her servis birbirini tetikleyecek ve API üzerinden birbirlerinde obje oluşturacaklar.
+
+product-service, ürün ile ilgili bilgileri içerir. order-service'deki orderItem'de product vardır.
+
+customer-service, yeni müşteri oluştuurulduğunda müşteri objesi oluşturur.
+
+order-service, Order class'ı içeriisinder orderList vardır ve içerisinde OrderItem tutar. OrderItem ürünü ve miktarını bulundurur.Bu sayede Order'a birden fazla ürün eklenebilir. order-service'de müşterinin email'ini customerID gibi tutarak bir order objesi oluşturulur. Her bir order invoice'a sahiptir. invoice-service'den yeni bir invoiceNo alınır. Bu invoiceNo RabbitMQ aracılığıyl asenkron alınır.
+
+invoice-service,  siparişin faturasıdır. sadece invoiceNo bulundurur(ileride başka özellikler de eklenebilir) ve unique bir invoiceNo vermekten sorumludur.
+
+main-service, bütün bu işlemlerin ortak olarak yönetildiği sınıftır. Bu sürecin yönetimini sağlar, test ortamı gibi düşünülebilir. İletişim API üzerinden örrnek objeler yaratarak gerçekleştirilir. GlobalExceptionHandler da buradadır. (Planım buydu ancak tam olarak yetişmedi. API üzerinden objeler yaratılmakta ve birbirleriyle iletişime geçebilmektedir.)
+
+
+
+Planım buydu ancak main-service tam olarak yetişmedi. API üzerinden objeler yaratılmakta ve birbirleriyle iletişime geçebilmektedir.main-service hariç sorunsuz çalışmaktadır.Postman api sorguları da klasörde yer almaktadır.
+
+Proje kurulumu:
+İlk olarak ProjectDiscovery çalıştırılır. (Eureka Server)
+Sonrasında, ProjectGateway çalıştırılır.(API gateway)
+Sonrasında, main-service hariç tüm microservisler çalıştırılır.
+Son olarak, main-service çalıştırılır ve buradan yönetilebilir.

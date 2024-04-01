@@ -1,22 +1,25 @@
 package com.patika.invoiceservice.repo;
 
 
-import com.patika.invoiceservice.model.Invoice;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class InvoiceRepository {
 
-    private List<Invoice> invoiceList = new ArrayList<>();
+    private List<Integer> invoiceList = new ArrayList<>();
 
     int lastInvoiceID=0;
 
 
 
-    public int getNewInvoiceID() {
+    public int createNewInvoice() {
+        invoiceList.add(lastInvoiceID);
         lastInvoiceID++;
         return lastInvoiceID-1;
+    }
+
+    public List<Integer> getAll() {
+        return invoiceList;
     }
 }
 
