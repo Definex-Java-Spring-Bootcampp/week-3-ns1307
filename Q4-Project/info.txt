@@ -14,8 +14,25 @@ main-service, bütün bu işlemlerin ortak olarak yönetildiği sınıftır. Bu 
 
 Planım buydu ancak main-service tam olarak yetişmedi. API üzerinden objeler yaratılmakta ve birbirleriyle iletişime geçebilmektedir.main-service hariç sorunsuz çalışmaktadır.Postman api sorguları da klasörde yer almaktadır.
 
-Proje kurulumu:
+
+Objelerin yaratılma sırası şu şekilde olmalıdır:
+
+Önce Product yaratılmalı. CREATE (Order için gerekli)
+
+Customer yaratılmalı. CREATE (orderList boş olarak gelir)
+
+Order yaratılmalı. CREATE (içi boş order yaratılır, bu esnada arkaplanda asenkron olarak invoice'dan unique invoiceNo alır.)
+
+Order'a product eklenmeli. UPDATE (Önceden yaratılmışl bir product'ın id'si ve miktarı gönderilir. Order'a bu ürünler eklenmiş olur. Eğer sepette varsa bu ürünün miktarı güncellenir. Aynı zamanda order'ın totalPrice'ı yeniden hesaplanır.)
+
+Customer'a order eklenmeli. UPDATE (Customer'ın email'i ve order invoiceNo'su gönderilerek order customer'ın orderlist'ine eklenir. Burada customer'ın email'i ve order'ın invoiceNo'su ID gibi düşünlmüştür.)
+
+Bütün bu sorgularda getAll ile tüm customers,products,orders,invoices görüntülenebilmektedir.
+
+
+
+Projenin çalıştırılması:
 İlk olarak ProjectDiscovery çalıştırılır. (Eureka Server)
 Sonrasında, ProjectGateway çalıştırılır.(API gateway)
 Sonrasında, main-service hariç tüm microservisler çalıştırılır.
-Son olarak, main-service çalıştırılır ve buradan yönetilebilir.
+Son olarak, main-service çalıştırılır ve buradan yönetilebilir.(Bozuk veya çalışmıyor olabilir.)
