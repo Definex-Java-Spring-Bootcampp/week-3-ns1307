@@ -21,7 +21,7 @@ Objelerin yaratılma sırası şu şekilde olmalıdır:
 
 Customer yaratılmalı. CREATE (orderList boş olarak gelir)
 
-Order yaratılmalı. CREATE (içi boş order yaratılır, bu esnada arkaplanda asenkron olarak invoice'dan unique invoiceNo alır.)
+Order yaratılmalı. CREATE (içi boş order yaratılır, bu esnada arkaplanda RabbitMQ aracılığıyla asenkron olarak invoice'dan unique invoiceNo alır.)
 
 Order'a product eklenmeli. UPDATE (Önceden yaratılmışl bir product'ın id'si ve miktarı gönderilir. Order'a bu ürünler eklenmiş olur. Eğer sepette varsa bu ürünün miktarı güncellenir. Aynı zamanda order'ın totalPrice'ı yeniden hesaplanır.)
 
@@ -34,5 +34,6 @@ Bütün bu sorgularda getAll ile tüm customers,products,orders,invoices görün
 Projenin çalıştırılması:
 İlk olarak ProjectDiscovery çalıştırılır. (Eureka Server)
 Sonrasında, ProjectGateway çalıştırılır.(API gateway)
+invoice-service için gerekli olan RabbitMQ çalıştırılmalıdır.
 Sonrasında, main-service hariç tüm microservisler çalıştırılır.
 Son olarak, main-service çalıştırılır ve buradan yönetilebilir.(Bozuk veya çalışmıyor olabilir.)
